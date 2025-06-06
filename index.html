@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitLady – Женский фитнес клуб</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: #fce4ec;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #e91e63;
+      margin: 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 10px;
+    }
+
+    .nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .btn {
+      background: #e91e63;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #c2185b;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about,
+    .services,
+    .schedule,
+    .pricing,
+    .trainers,
+    .contacts {
+      background: #f3f3f3;
+    }
+
+    .service-card,
+    .trainer-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    }
+
+    .service-card h3,
+    .trainer-card h3 {
+      font-size: 20px;
+      color: #e91e63;
+    }
+
+    .service-card p,
+    .trainer-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Черный фон с прозрачностью */
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Стили для формы */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input,
+    form select,
+    form button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background: #e91e63;
+      color: white;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #c2185b;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">FitLady</h1>
+      <nav class="nav">
+        <a href="#">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#pricing">Абонементы</a>
+        <a href="#trainers">Тренеры</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Твое тело. Твоя энергия. Твое пространство.</h2>
+      <p>Женский фитнес-клуб для вдохновения, силы и красоты</p>
+      <a href="javascript:void(0);" class="btn" id="openModalBtn">Записаться на пробное занятие</a>
+    </div>
+  </section>
+
+  <!-- О нас -->
+  <section id="about" class="about section">
+    <div class="container">
+      <h2>О нас</h2>
+      <p>FitLady – это уникальный женский фитнес клуб, где каждая женщина может найти свое место. Мы предлагаем комфортное пространство для занятий, где каждой клиентке будет доступна индивидуальная программа тренировок, помощь опытных тренеров, а также специализированные услуги для улучшения здоровья и внешности. Мы создаем атмосферу поддержки и мотивации, чтобы каждая женщина чувствовала себя уверенно и достигала своих целей.</p>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section id="services" class="services section">
+    <div class="container">
+      <h2>Наши услуги</h2>
+      <div class="service-card">
+        <h3>Групповые тренировки</h3>
+        <p>Занятия по йоге, стретчингу, танцам, силовые тренировки, фитнес и многое другое. Подходит для всех уровней подготовки.</p>
+      </div>
+      <div class="service-card">
+        <h3>Персональные тренировки</h3>
+        <p>Индивидуальные тренировки с опытными тренерами для достижения лучших результатов в комфортной обстановке.</p>
+      </div>
+      <div class="service-card">
+        <h3>СПА и массажи</h3>
+        <p>Расслабляющие процедуры, включая массажи, сауну и обертывания для восстановления после тренировок.</p>
+      </div>
+      <div class="service-card">
+        <h3>Консультации специалистов</h3>
+        <p>Консультации по питанию, диетологии и уходу за телом от профессионалов, чтобы вы достигли своих целей быстрее.</p>
+      </div>
+      <div class="service-card">
+        <h3>Фитнес-кафе</h3>
+        <p>Полезные и вкусные блюда для восстановления энергии после тренировки, свежевыжатые соки и полезные перекусы.</p>
+      </div>
+      <div class="service-card">
+        <h3>Детская комната</h3>
+        <p>Занятия с детьми под присмотром опытной няни, чтобы вы могли тренироваться, не переживая за своих малышей.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Расписание -->
+  <section id="schedule" class="schedule section">
+    <div class="container">
+      <h2>Расписание тренировок</h2>
+      <table border="1" cellpadding="10" style="width: 100%; text-align: center;">
+        <tr>
+          <th>Время</th>
+          <th>Понед.</th>
+          <th>Вторн.</th>
+          <th>Среда</th>
+          <th>Четв.</th>
+          <th>Пятн.</th>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td>Йога</td>
+          <td>Стретчинг</td>
+          <td>Фитнес</td>
+          <td>Йога</td>
+          <td>Танцы</td>
+        </tr>
+        <tr>
+          <td>12:00</td>
+          <td>Фитнес</td>
+          <td>Танцы</td>
+          <td>Фитнес</td>
+          <td>Йога</td>
+          <td>Танцы</td>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td>Стретчинг</td>
+          <td>Йога</td>
+          <td>Фитнес</td>
+          <td>Танцы</td>
+          <td>Стретчинг</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Абонементы -->
+  <section id="pricing" class="pricing section">
+    <div class="container">
+      <h2>Абонементы</h2>
+      <div class="service-card">
+        <h3>Абонемент "Базовый"</h3>
+        <p>1 месяц — 3000 руб. (Групповые тренировки)</p>
+      </div>
+      <div class="service-card">
+        <h3>Абонемент "Премиум"</h3>
+        <p>1 месяц — 5000 руб. (Групповые и персональные тренировки)</p>
+      </div>
+      <div class="service-card">
+        <h3>Абонемент "VIP"</h3>
+        <p>1 месяц — 7000 руб. (Все тренировки, СПА-процедуры, консультации)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тренеры -->
+  <section id="trainers" class="trainers section">
+    <div class="container">
+      <h2>Наши тренеры</h2>
+      <div class="trainer-card">
+        <h3>Анна С.</h3>
+        <p>Тренер по йоге и стретчингу. Опыт работы более 10 лет, сертифицированный инструктор.</p>
+      </div>
+      <div class="trainer-card">
+        <h3>Екатерина П.</h3>
+        <p>Персональный тренер. Специалист по фитнесу и силовым тренировкам.</p>
+      </div>
+      <div class="trainer-card">
+        <h3>Мария И.</h3>
+        <p>Тренер по танцам и кардио. Разработала авторскую методику тренировок для женщин.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="contacts section">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p>Телефон: +7 123 456 7890</p>
+      <p>Email: info@fitlady.ru</p>
+      <p>Адрес: г. Москва, ул. Ленина, 1</p>
+    </div>
+  </section>
+
+  <!-- Модальное окно для записи -->
+  <div id="trialModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Записаться на пробное занятие</h2>
+      <form id="trialForm">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="time">Выберите время:</label>
+        <select id="time" name="time" required>
+          <option value="10:00">10:00</option>
+          <option value="12:00">12:00</option>
+          <option value="14:00">14:00</option>
+          <option value="16:00">16:00</option>
+          <option value="18:00">18:00</option>
+        </select>
+
+        <button type="submit" class="btn">Записаться</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 FitLady – Женский фитнес-клуб</p>
+    </div>
+  </footer>
+
+  <script>
+    // Получаем элементы
+    var modal = document.getElementById("trialModal");
+    var openModalBtn = document.getElementById("openModalBtn");
+    var closeModalBtn = document.getElementById("closeModalBtn");
+
+    // Открытие модального окна
+    openModalBtn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // Закрытие модального окна
+    closeModalBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Обработка отправки формы
+    document.getElementById("trialForm").onsubmit = function(event) {
+      event.preventDefault(); // Отменяем стандартное действие формы
+
+      var formData = new FormData(event.target);
+
+      // Преобразуем форму в объект
+      var data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      console.log("Заявка на пробное занятие:", data);
+
+      // Можно отправить данные на сервер (например, с помощью fetch)
+      alert("Вы успешно записались на пробное занятие!");
+      modal.style.display = "none"; // Закрыть модальное окно
+    }
+  </script>
+</body>
+</html>
